@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        body {
+            background-color: rgb(255, 255, 255);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Container for consistent spacing */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #8B6CF6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #8B6CF6;
+        }
+
+        .signup-btn a {
+            border: 2px solid #8B6CF6;
+            background-color: #8B6CF6;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .signup-btn a:hover {
+            background-color: #7a5ff0;
+            border-color: #7a5ff0;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin: 60px auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .accent {
+            color: #8B6CF6;
+        }
+
+        .get-started {
+            margin-top: 20px;
+        }
+
+        .get-started a {
+            background-color: #8B6CF6;
+            color: white;
+            border-radius: 8px;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .get-started a:hover {
+            background-color: #7a5ff0;
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-top: 80px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Card layout */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #f7f7f7;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 60px;
+            border-radius: 8px 8px 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        .icon-box i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card h3 {
+            margin-top: 60px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .yellow .icon-box {
+            background: #f8c100;
+        }
+
+        .green .icon-box {
+            background: #19c37d;
+        }
+
+        .purple .icon-box {
+            background: #9b6bff;
+        }
+
+        .red .icon-box {
+            background: #ff4b3e;
+        }
+
+        .yellow:hover {
+            box-shadow: 0 0 15px rgba(248,193,0,0.6);
+        }
+
+        .green:hover {
+            box-shadow: 0 0 15px rgba(25,195,125,0.6);
+        }
+
+        .purple:hover {
+            box-shadow: 0 0 15px rgba(155,107,255,0.6);
+        }
+
+        .red:hover {
+            box-shadow: 0 0 15px rgba(255,75,62,0.6);
+        }
+
+        /* Simple Solutions section */
+        .solutions {
+            background-color: #7a5ff04d;
+            margin-top: 80px;
+            padding: 60px 5%;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .solutions-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .solutions-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .solutions-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .solutions h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .solutions p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            background-color: #9b6bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            margin-left: 15px;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .solution-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .solution-buttons a {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .solution-buttons .get {
+            background-color: #7b5afc;
+            color: white;
+        }
+
+        .solution-buttons .get:hover {
+            background-color: #6a49eb;
+        }
+
+        .solution-buttons .read {
+            color: #7b5afc;
+            border: 2px solid #7b5afc;
+            background: transparent;
+        }
+
+        .solution-buttons .read:hover {
+            background-color: #7b5afc;
+            color: white;
+        }
+
+        /* Clients Section */
+        .testimonials {
+            text-align: center;
+            margin: 100px 0;
+            padding: 0 20px;
+        }
+
+        .testimonials h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .testimonials p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Testimonial Slider */
+        .testimonial-slider {
+            overflow: hidden;
+            width: 100%;
+            padding: 50px 0;
+            background: #fff;
+            position: relative;
+        }
+
+        .slide-track {
+            display: flex;
+            animation: scroll 25s linear infinite;
+            width: calc(300px * 12);
+        }
+
+        .testimonial-slider:hover .slide-track {
+            animation-play-state: paused;
+        }
+
+        .testimonial-card {
+            flex: 0 0 auto;
+            width: 280px;
+            margin: 0 15px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .info h3 {
+            color: #7a4efc;
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .info p {
+            color: #777;
+            font-size: 0.9rem;
+            margin: 3px 0 0;
+        }
+
+        .review {
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #f7c948;
+            font-size: 1rem;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-280px * 6)); }
+        }
+
+        /* CTA Section */
+        .cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 80px 0;
+            padding: 0 20px;
+        }
+
+        .cta-box {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            min-height: 100px;
+            background-color: #9b6bff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            padding: 30px 40px;
+            gap: 20px;
+        }
+
+        .cta-text {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: white;
+            margin: 0;
+        }
+
+        .cta-button a {
+            text-decoration: none;
+            color: white;
+            height: 50px;
+            min-width: 150px;
+            border: 2px solid #ffffff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            padding: 0 20px;
+            transition: 0.3s;
+        }
+
+        .cta-button a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #7a5ff04d;
+            padding: 60px 0 30px;
+            margin-top: 0;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 5% 40px;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #7a5ff0;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-icons img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #7a5ff0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            margin-top: 30px;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .cta-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .cta-button {
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                border-radius: 0 0 8px 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                text-align: center;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .signup-btn {
+                display: none;
+            }
+
+            .hero, .solutions {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .steps {
+                align-items: center;
+            }
+
+            .solution-buttons {
+                justify-content: center;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-links {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card-container {
+                grid-template-columns: 1fr;
+                padding: 20px 10px;
+            }
+
+            .testimonial-card {
+                width: 260px;
+            }
+
+            .slide-track {
+                width: calc(260px * 12);
+            }
+
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-260px * 6)); }
+            }
+
+            .solution-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .solution-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .hero, .solutions {
+                padding: 0 20px;
+            }
+
+            .section-title {
+                margin-top: 60px;
+            }
+
+            .testimonials {
+                margin: 60px 0;
+            }
+
+            .cta {
+                margin: 60px 0;
+            }
+
+            .cta-box {
+                padding: 25px 20px;
+            }
+
+            .footer {
+                padding: 40px 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="#">DigiCare</a></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html" target="_blank">About us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="contact.html" target="_blank">Contact</a></li>
+            <li><a href="blog.html" target="_blank">Blog</a></li>
+        </ul>
+        <div class="signup-btn">
+            <a href="sign.html" target="_blank">Sign up</a>
+        </div>
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>We create <span class="accent">solutions</span> for your Business</h1>
+            <p>Our team keeps a keen eye on emerging trends and technologies to ensure your marketing campaigns remain cutting edge</p>
+            <div class="get-started">
+                <a href="#">Get Started</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="chair.png" alt="Digital Marketing Solutions">
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <h2 class="section-title">We Provide The Best <span class="accent">Services</span></h2>
+        <p class="section-subtitle">Let us unleash the full potential of your digital marketing service in short span of time with our DigiCare agency</p>
+        
+        <div class="card-container">
+            <div class="card yellow">
+                <div class="icon-box"><i class="fa fa-search"></i></div>
+                <h3>Web Search</h3>
+                <p>Reach, engage, and grow your online presence</p>
+            </div>
+            <div class="card green">
+                <div class="icon-box"><i class="fa fa-bullhorn"></i></div>
+                <h3>Marketing</h3>
+                <p>Creative marketing that connects brands with us.</p>
+            </div>
+            <div class="card purple">
+                <div class="icon-box"><i class="fa fa-bullseye"></i></div>
+                <h3>Target Campaign</h3>
+                <p>Boosting visibility, engage and customer trust.</p>
+            </div>
+            <div class="card red">
+                <div class="icon-box"><i class="fa fa-clipboard"></i></div>
+                <h3>Others</h3>
+                <p>Your partner for impactful digital marketing success</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMPLE SOLUTIONS SECTION -->
+    <section class="solutions">
+        <div class="solutions-content">
+            <div class="solutions-image">
+                <img src="sit.png" alt="Simple Solutions">
+            </div>
+            <h2>Simple <span class="accent">Solutions!</span></h2>
+            <p>We understand that no two businesses are alike. That's why we take the time to understand.</p>
+        </div>
+        <div class="steps-content">
+            <div class="steps">
+                <div class="step"><div class="circle">1</div><p>Contact us</p></div>
+                <div class="step"><div class="circle">2</div><p>Consult</p></div>
+                <div class="step"><div class="circle">3</div><p>Place Order</p></div>
+                <div class="step"><div class="circle">4</div><p>Payment</p></div>
+                <div class="step"><div class="circle">5</div><p>Delivery</p></div>
+            </div>
+            <div class="solution-buttons">
+                <a href="#" class="get">Get Started</a>
+                <a href="#" class="read">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTS SECTION -->
+    <section class="testimonials">
+        <h2>Our <span class="accent">Clients</span> Say!</h2>
+        <p>See how Our Digital Marketing Agency Helped Clients Achieve their Goals.</p>
+    </section>
+
+    <div class="testimonial-slider">
+        <div class="slide-track">
+            <!-- Testimonial cards (duplicated for seamless loop) -->
+            <div class="testimonial-card">
+                <div class="profile">
+                    <img src="77.jpg" alt="Mia Cheng">
+                    <div class="info">
+                        <h3>Mia Cheng</h3>
+                        <p>Manager at Nvidia</p>
+                    </div>
+                </div>
+                <p class="review">We've seen amazing results since partnering with this digital marketing agency. Their campaigns are creative, data-driven, and perfectly targeted.</p>
+                <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="profile">
+                    <img src="pexels-olly-3763188.jpg" alt="Lilly Moore">
+                    <div class="info">
+                        <h3>Lilly Moore</h3>
+                        <p>CEO at ZenG</p>
+                    </div>
+                </div>
+                <p class="review">This agency helped our business grow tremendously online. Their SEO and social media strategies improved our reach and sales.</p>
+                <div class="stars">⭐ ⭐ ⭐ ⭐ ☆</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="profile">
+                    <img src="54.jpg" alt="Ava Davis">
+                    <div class="info">
+                        <h3>Ava Davis</h3>
+                        <p>Photographer</p>
+                    </div>
+                </div>
+                <p class="review">An excellent agency that truly knows digital marketing. They revamped our website, improved our SEO rankings, and ran high-performing ad campaigns.</p>
+                <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            </div>
+            
+            <!-- Duplicates for seamless loop -->
+            <div class="testimonial-card">
+                <div class="profile">
+                    <img src="77.jpg" alt="Mia Cheng">
+                    <div class="info">
+                        <h3>Mia Cheng</h3>
+                        <p>Manager at Nvidia</p>
+                    </div>
+                </div>
+                <p class="review">We've seen amazing results since partnering with this digital marketing agency. Their campaigns are creative, data-driven, and perfectly targeted.</p>
+                <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="profile">
+                    <img src="pexels-olly-3763188.jpg" alt="Lilly Moore">
+                    <div class="info">
+                        <h3>Lilly Moore</h3>
+                        <p>CEO at ZenG</p>
+                    </div>
+                </div>
+                <p class="review">This agency helped our business grow tremendously online. Their SEO and social media strategies improved our reach and sales.</p>
+                <div class="stars">⭐ ⭐ ⭐ ⭐ ☆</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="profile">
+                    <img src="54.jpg" alt="Ava Davis">
+                    <div class="info">
+                        <h3>Ava Davis</h3>
+                        <p>Photographer</p>
+                    </div>
+                </div>
+                <p class="review">An excellent agency that truly knows digital marketing. They revamped our website, improved our SEO rankings, and ran high-performing ad campaigns.</p>
+                <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="cta">
+        <div class="cta-box">
+            <p class="cta-text">Ready to get started?</p>
+            <div class="cta-button">
+                <a href="contact.html" target="_blank">Contact us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo" style="text-decoration: none;">DigiCare</a>
+                <div class="social-icons">
+                    <a href="error.html" target="_blank"><img src="face.png" alt="Facebook"></a>
+                    <a href="error.html" target="_blank"><img src="insta.png" alt="Instagram"></a>
+                    <a href="error.html" target="_blank"><img src="twit.png" alt="Twitter"></a>
+                    <a href="error.html" target="_blank"><img src="link.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html" target="_blank">About</a></li>
+                        <li><a href="team.html" target="_blank">Our Team</a></li>
+                        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Designs</h3>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Portfolio Design</a></li>
+                        <li><a href="#">Packaging Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="blog.html" target="_blank">Blogs/Articles</a></li>
+                        <li><a href="pricing.html" target="_blank">Pricing Plans</a></li>
+                        <li><a href="tools.html" target="_blank">Marketing Tools</a></li>
+                        <li><a href="faq.html" target="_blank">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>All Rights Reserved @2025</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiCare | Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-box">
+      <h1>Create Account</h1>
+      <p>Join DigiCare to explore powerful digital marketing tools.</p>
+
+      <form>
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Create a password" required>
+        </div>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+
+        <p class="login-text">Already have an account? <a href="#">Login</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<style>
+    /* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Page background */
+body {
+  background: linear-gradient(135deg, #7b5afc, #c3b4ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Signup box */
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.signup-box {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-box h1 {
+  text-align: center;
+  color: #7b5afc;
+  margin-bottom: 10px;
+}
+
+.signup-box p {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* Input fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #7b5afc;
+  outline: none;
+}
+
+/* Button */
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #7b5afc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  background-color: #6841f2;
+}
+
+/* Login link */
+.login-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-text a {
+  color: #7b5afc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .signup-box {
+    padding: 20px;
+  }
+
+  .signup-box h1 {
+    font-size: 22px;
+  }
+
+  .signup-box p {
+    font-size: 13px;
+  }
+}
+
+</style>
